@@ -24,15 +24,20 @@ public abstract class FIBPanelUI extends AbstractNotePanel {
         textArea = new javax.swing.JTextArea();
         previewLabel = new javax.swing.JLabel();
 
+        setBackground(java.awt.Color.lightGray);
         setPreferredSize(new java.awt.Dimension(600, 400));
 
         textAreaLabel.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        textAreaLabel.setText("Select words for extracting blanks");
+        textAreaLabel.setText("Select words and right click for extracting blanks");
+
+        sp1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        sp1.setAutoscrolls(true);
 
         textArea.setColumns(20);
         textArea.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         textArea.setLineWrap(true);
         textArea.setRows(5);
+        textArea.setTabSize(4);
         textArea.setWrapStyleWord(true);
         textArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         sp1.setViewportView(textArea);
@@ -44,15 +49,19 @@ public abstract class FIBPanelUI extends AbstractNotePanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(previewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(textAreaLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sp1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(previewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(textAreaLabel)
+                                .addGap(0, 135, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,7 +71,7 @@ public abstract class FIBPanelUI extends AbstractNotePanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sp1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(previewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addComponent(previewLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
